@@ -10,16 +10,26 @@
   function ToBuyController(ShoppingListCheckOffService){
     var buyList = this;
     buyList.emptyMessage ="";
-    buyList.items =ShoppingListCheckOffService.getBuyList(buyList.emptyMessage );
+    buyList.items =ShoppingListCheckOffService.getBuyList();
     buyList.buy = function(itemIndex){
       ShoppingListCheckOffService.buyItem(itemIndex);
+      if(buyList.length==0){
+        buyList.emptyMessage= "Everything bought!";
+      }else{
+        buyList.emptyMessage= "";
+      };
     };
   };
 
   function AlreadyBoughtController(ShoppingListCheckOffService){
    var boughtList = this;
    boughtList.emptyMessage="";
-   boughtList.items =ShoppingListCheckOffService.getBoughtList(boughtList.emptyMessage);
+   boughtList.items =ShoppingListCheckOffService.getBoughtList();
+   if(boughtList.length==0){
+     boughtList.emptyMessage = "Nothing bought!!";
+   }else{
+     boughtList.emptyMessage = "";
+   };
 
   };
 
@@ -33,19 +43,9 @@
       buyList.splice(itemIndex,1);
     };
     service.getBuyList = function(msg){
-      if(boughtList.length==0){
-        msg = "Nothing bought!!";
-      }else{
-        msg = "";
-      };
       return buyList;
     };
    service.getBoughtList = function(msg){
-     if(buyList.length==0){
-       msg= "Everything bought!";
-     }else{
-       msg= "";
-     };
      return boughtList;
    };
 
