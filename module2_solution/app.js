@@ -10,11 +10,7 @@
   function ToBuyController(ShoppingListCheckOffService){
     var buyList = this;
     buyList.items =ShoppingListCheckOffService.getBuyList();
-    if(items.length==0){
-      buyList.emptyMessage= "Everything bought!";
-    }else{
-      buyList.emptyMessage ="";
-    };
+    buyList.showEmptyMessage=ShoppingListCheckOffService.showEmptyBuyListMessage();
     buyList.buy = function(itemIndex){
       ShoppingListCheckOffService.buyItem(itemIndex);
     };
@@ -45,6 +41,8 @@
    service.getBoughtList = function(msg){
      return boughtList;
    };
-
+  service.showEmptyBuyListMessage = function(){
+    return buyList.length ==0;
+  };
   };
 })();
