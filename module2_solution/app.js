@@ -10,9 +10,10 @@
   function ToBuyController(ShoppingListCheckOffService){
     var buyListController = this;
     buyListController.items =ShoppingListCheckOffService.getBuyList();
-    buyListController.showEmptyMessage=ShoppingListCheckOffService.showEmptyBuyListMessage();
+    buyListController.showEmptyMessage=false;
     buyListController.buy = function(itemIndex){
       ShoppingListCheckOffService.buyItem(itemIndex);
+      buyListController.showEmptyMessage=ShoppingListCheckOffService.showEmptyBuyListMessage();
     };
   };
 
