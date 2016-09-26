@@ -8,18 +8,18 @@
   ToBuyController.$inject = ['ShoppingListCheckOffService'];
   AlreadyBoughtController.$inject =['ShoppingListCheckOffService'];
   function ToBuyController(ShoppingListCheckOffService){
-    var buyList = this;
-    buyList.items =ShoppingListCheckOffService.getBuyList();
-    buyList.showEmptyMessage=ShoppingListCheckOffService.showEmptyBuyListMessage();
-    buyList.buy = function(itemIndex){
+    var buyListController = this;
+    buyListController.items =ShoppingListCheckOffService.getBuyList();
+    buyListController.showEmptyMessage=ShoppingListCheckOffService.showEmptyBuyListMessage();
+    buyListController.buy = function(itemIndex){
       ShoppingListCheckOffService.buyItem(itemIndex);
     };
   };
 
   function AlreadyBoughtController(ShoppingListCheckOffService){
-   var boughtList = this;
-   boughtList.showEmptyMessage=ShoppingListCheckOffService.showEmptyBoughtListMessage();
-   boughtList.items =ShoppingListCheckOffService.getBoughtList();
+   var boughtListController = this;
+   boughtListController.showEmptyMessage=ShoppingListCheckOffService.showEmptyBoughtListMessage();
+   boughtListController.items =ShoppingListCheckOffService.getBoughtList();
   };
 
   function ShoppingListCheckOffService(){
