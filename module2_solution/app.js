@@ -26,6 +26,24 @@
     var service = this;
     var buyList =[{name: "Cookies",quantity: 10},{name: "Cookies",quantity: 10},{name: "Cookies",quantity: 10},{name: "Cookies",quantity: 10}];
     var boughtList =[];
+    service.buyListEmptyMessage = function (items){
+      var msg ="";
+      if(!items || items.length==0){
+        msg= "Everything bought!";
+      }else{
+        msg ="";
+      };
+      return msg;
+    };
+    service.boughtListEmptyMessage = function (items){
+      var msg ="";
+      if(!items || items.length==0){
+        msg= "Nothing bought!";
+      }else{
+        msg ="";
+      };
+      return msg;
+    };
     service.buyItem = function(itemIndex){
       var item = {name:buyList[itemIndex].name,quantity:buyList[itemIndex].quantity};
       boughtList.push(item);
@@ -37,22 +55,5 @@
    service.getBoughtList = function(){
      return boughtList;
    };
-   service.boughtListEmptyMessage =fuction(itemList){
-     if(!itemList || itemList.length == 0){
-         return "Nothing bought yet";
-     }
-     else{
-         return "";
-     };
-   };
-   service.buyListEmptyMessage =fuction(itemList){
-     if(!itemList || itemList.length == 0){
-         return "Everything is bought!";
-     }
-     else{
-         return "";
-     };
-   };
-
   };
 })();
