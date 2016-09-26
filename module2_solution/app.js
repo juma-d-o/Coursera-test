@@ -9,41 +9,25 @@
   AlreadyBoughtController.$inject =['ShoppingListCheckOffService'];
   function ToBuyController(ShoppingListCheckOffService){
     var buyList = this;
-    buyList.items =ShoppingListCheckOffService.getBuyList();
-    buyList.emptyMessage=ShoppingListCheckOffService.buyListEmptyMessage();
+    buyList.items =ShoppingListCheckOffService.getBuyList(msg);
     buyList.buy = function(itemIndex){
       ShoppingListCheckOffService.buyItem(itemIndex);
+      if(buylist.items.length==0){
+        buyList.emptyMessage="Everything bought!";
+      }else{
+        buyList.emptyMessage ="";
+      };
     };
   };
 
   function AlreadyBoughtController(ShoppingListCheckOffService){
    var boughtList = this;
-   boughtList.items =ShoppingListCheckOffService.getBoughtList();
-   boughtList.emptyMessage=ShoppingListCheckOffService.boughtListEmptyMessage();
+   boughtList.items =ShoppingListCheckOffService.getBoughtList(boughtList.emptyMessage);
   };
 
   function ShoppingListCheckOffService(){
     var service = this;
     var buyList =[{name: "Cookies",quantity: 10},{name: "Cookies",quantity: 10},{name: "Cookies",quantity: 10},{name: "Cookies",quantity: 10}];
-    var boughtList =[];
-    service.buyListEmptyMessage = function (){
-      var msg ="";
-      if(!buyList || buyList.length==0){
-        msg= "Everything bought!";
-      }else{
-        msg ="";
-      };
-      return msg;
-    };
-    service.boughtListEmptyMessage = function (){
-      var msg ="";
-      if(!boughtList || items.boughtList==0){
-        msg= "Nothing bought!";
-      }else{
-        msg ="";
-      };
-      return msg;
-    };
     service.buyItem = function(itemIndex){
       var item = {name:buyList[itemIndex].name,quantity:buyList[itemIndex].quantity};
       boughtList.push(item);
@@ -52,7 +36,12 @@
     service.getBuyList = function(){
       return buyList;
     };
-   service.getBoughtList = function(){
+   service.getBoughtList = function(msg){
+     if(boughtList.length==0){
+       msg ="Nothing bought!";
+     }else{
+       msg ="";
+     };
      return boughtList;
    };
   };
