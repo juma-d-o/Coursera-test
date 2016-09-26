@@ -17,8 +17,8 @@
     else{
         buyList.emptyMessage="";
     };
-    buyList.buy = function(itemName,quantity,itemIndex){
-      service.buyItem(itemName,quantity,itemIndex);
+    buyList.buy = function(itemIndex){
+      service.buyItem(itemIndex);
     };
   };
 
@@ -38,10 +38,10 @@
     var service = this;
     var buyList =[{name: "Cookies",quantity: 10},{name: "Cookies",quantity: 10},{name: "Cookies",quantity: 10},{name: "Cookies",quantity: 10}];
     var boughtList =[];
-    service.buyItem = function(itemName,quantity,itemIndex){
-      var item = {name: itemName, quantity:quantity};
+    service.buyItem = function(itemIndex){
+      var item = buyList[itemIndex]
       boughtList.push(item);
-      
+      buyList.splice(itemIndex,1);
     };
     service.getBuyList = function(){
       return buyList;
