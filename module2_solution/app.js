@@ -39,7 +39,7 @@
     var buyList =[{name: "Cookies",quantity: 10},{name: "Cookies",quantity: 10},{name: "Cookies",quantity: 10},{name: "Cookies",quantity: 10}];
     var boughtList =[];
     service.buyItem = function(itemIndex){
-      var item = buyList[itemIndex];
+      var item = {name:buyList[itemIndex].name,quantity:name:buyList[itemIndex].quantity};
       boughtList.push(item);
       buyList.splice(itemIndex,1);
     };
