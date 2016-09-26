@@ -7,7 +7,7 @@
 
   ToBuyController.$inject = ['ShoppingListCheckOffService','$scope'];
   AlreadyBoughtController.$inject =['ShoppingListCheckOffService','$scope'];
-  function ToBuyController(ShoppingListCheckOffService){
+  function ToBuyController(ShoppingListCheckOffService,$scope){
     var buyList = this;
     buyList.emptyMessage ="";
     buyList.items =ShoppingListCheckOffService.getBuyList();
