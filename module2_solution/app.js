@@ -19,13 +19,16 @@
 
   function AlreadyBoughtController(ShoppingListCheckOffService){
    var boughtListController = this;
-   boughtListController.showEmptyMessage=ShoppingListCheckOffService.showEmptyBoughtListMessage();
-   boughtListController.items =ShoppingListCheckOffService.getBoughtList();
+    boughtListController.showEmptyMessage=false;
+    boughtListController.items =function(){
+     boughtListController.showEmptyMessage=ShoppingListCheckOffService.showEmptyBoughtListMessage();
+     return ShoppingListCheckOffService.getBoughtList();
+   };
   };
 
   function ShoppingListCheckOffService(){
     var service = this;
-    var buyList =[{name: "Cookies",quantity: 10},{name: "Cookies",quantity: 10},{name: "Cookies",quantity: 10},{name: "Cookies",quantity: 10}];
+    var buyList =[{name: "Cookies",quantity: 10},{name: "Spoon",quantity: 10},{name: "Cookies",quantity: 10},{name: "Cookies",quantity: 10}];
     var boughtList =[];
     service.buyItem = function(itemIndex){
       var item = {name:buyList[itemIndex].name,quantity:buyList[itemIndex].quantity};
