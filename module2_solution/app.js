@@ -10,7 +10,7 @@
   function ToBuyController(ShoppingListCheckOffService){
     var buyList = this;
     buyList.items =ShoppingListCheckOffService.getBuyList();
-    buyList.emptyMessage=ShoppingListCheckOffService.buyListEmptyMessage(items);
+    buyList.emptyMessage=ShoppingListCheckOffService.buyListEmptyMessage(buyList.items);
     buyList.buy = function(itemIndex){
       ShoppingListCheckOffService.buyItem(itemIndex);
     };
@@ -19,7 +19,7 @@
   function AlreadyBoughtController(ShoppingListCheckOffService){
    var boughtList = this;
    boughtList.items =ShoppingListCheckOffService.getBoughtList();
-   boughtList.emptyMessage=ShoppingListCheckOffService.boughtListEmptyMessage(items);
+   boughtList.emptyMessage=ShoppingListCheckOffService.boughtListEmptyMessage(boughtList.items);
   };
 
   function ShoppingListCheckOffService(){
