@@ -14,11 +14,9 @@
     buyList.buy = function(itemIndex){
       ShoppingListCheckOffService.buyItem(itemIndex);
     };
-    $scope.$apply(function(){
-      if(buyList.length==0){
-        buyList.emptyMessage= "Everything bought!";
-      };
-    });
+    if(buyList.length==0){
+      $scope.emptyMessage= "Everything bought!";
+    };
   };
 
   function AlreadyBoughtController(ShoppingListCheckOffService){
