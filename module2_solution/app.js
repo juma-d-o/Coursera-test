@@ -18,12 +18,8 @@
 
   function AlreadyBoughtController(ShoppingListCheckOffService){
    var boughtList = this;
-   boughtList.emptyMessage="Nothing bought!";
+   boughtList.showEmptyMessage=ShoppingListCheckOffService.showEmptyBoughtListMessage();
    boughtList.items =ShoppingListCheckOffService.getBoughtList();
-   if(items.length==0){
-     boughtList.emptyMessage = "";
-   };
-
   };
 
   function ShoppingListCheckOffService(){
@@ -43,6 +39,10 @@
    };
   service.showEmptyBuyListMessage = function(){
     return buyList.length ==0;
+  };
+
+  service.showEmptyBoughtListMessage = function(){
+    return boughtList.length ==0;
   };
   };
 })();
