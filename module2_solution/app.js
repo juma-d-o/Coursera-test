@@ -26,6 +26,7 @@
   function ShoppingListCheckOffService(){
     var service = this;
     var buyList =[{name: "Cookies",quantity: 10},{name: "Cookies",quantity: 10},{name: "Cookies",quantity: 10},{name: "Cookies",quantity: 10}];
+    var boughtList =[];
     service.buyItem = function(itemIndex){
       var item = {name:buyList[itemIndex].name,quantity:buyList[itemIndex].quantity};
       boughtList.push(item);
