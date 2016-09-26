@@ -25,11 +25,7 @@
    var boughtList = this;
    boughtList.emptyMessage="";
    boughtList.items =ShoppingListCheckOffService.getBoughtList();
-   if(items.length==0){
-     boughtList.emptyMessage ="Nothing bought!";
-   }else{
-     boughtList.emptyMessage="";
-   };
+   
   };
 
   function ShoppingListCheckOffService(){
