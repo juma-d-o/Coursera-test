@@ -19,9 +19,9 @@
 
   function AlreadyBoughtController(ShoppingListCheckOffService){
    var boughtListController = this;
-   boughtListController.showEmptyMessage=true;
+   boughtListController.showEmptyMessage=false;
    boughtListController.items =function(){
-     boughtListController.showEmptyMessage=ShoppingListCheckOffService.showEmptyBoughtListMessage();
+   boughtListController.showEmptyMessage=ShoppingListCheckOffService.showEmptyBoughtListMessage();
     return ShoppingListCheckOffService.getBoughtList()
    }();
   };
