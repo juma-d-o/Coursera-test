@@ -11,14 +11,14 @@
     var buyList = this;
       buyList.emptyMessage="";
     buyList.items =ShoppingListCheckOffService.getBuyList();
-    if(buyList.items.length == 0){
-        buyList.emptyMessage="Everything is bought!";
-    }
-    else{
-        buyList.emptyMessage="";
-    };
     buyList.buy = function(itemIndex){
       ShoppingListCheckOffService.buyItem(itemIndex);
+      if(!buyList.items||buyList.items.length == 0){
+          buyList.emptyMessage="Everything is bought!";
+      }
+      else{
+          buyList.emptyMessage="";
+      };
     };
   };
 
