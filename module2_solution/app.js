@@ -41,7 +41,7 @@
     service.buyItem = function(itemName,quantity,itemIndex){
       var item = {name: itemName, quantity:quantity};
       boughtList.push(item);
-      buyList.splice(itemIndex,1);
+      
     };
     service.getBuyList = function(){
       return buyList;
