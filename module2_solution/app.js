@@ -11,7 +11,7 @@
     var buyList = this;
     buyList.emptyMessage ="";
     buyList.items =ShoppingListCheckOffService.getBuyList();
-    if( buyList.items.length==0){
+    if(!buyList || buyList.items.length==0){
       buyList.emptyMessage="Everything bought!";
     }else{
       buyList.emptyMessage ="";
@@ -23,9 +23,9 @@
 
   function AlreadyBoughtController(ShoppingListCheckOffService){
    var boughtList = this;
-    boughtList.emptyMessage="";
+   boughtList.emptyMessage="";
    boughtList.items =ShoppingListCheckOffService.getBoughtList();
-   if(boughtList.items.length==0){
+   if(!boughtList || boughtList.items.length==0){
      boughtList.emptyMessage ="Nothing bought!";
    }else{
      boughtList.emptyMessage="";
