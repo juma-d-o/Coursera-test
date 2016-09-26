@@ -37,16 +37,16 @@
    service.getBoughtList = function(){
      return boughtList;
    };
-   service.boughtListEmptyMessage =fuction(boughtList){
-     if(!boughtList || boughtList.length == 0){
+   service.boughtListEmptyMessage =fuction(itemList){
+     if(!itemList || itemList.length == 0){
          return "Nothing bought yet";
      }
      else{
          return "";
-     }
+     };
    };
-   service.buyListEmptyMessage =fuction(buyList){
-     if(!buyList || buyList.length == 0){
+   service.buyListEmptyMessage =fuction(itemList){
+     if(!itemList || itemList.length == 0){
          return "Everything is bought!";
      }
      else{
