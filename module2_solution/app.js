@@ -9,13 +9,8 @@
   AlreadyBoughtController.$inject =['ShoppingListCheckOffService'];
   function ToBuyController(ShoppingListCheckOffService){
     var buyList = this;
-    buyList.emptyMessage ="";
+    buyList.emptyMessage =ShoppingListCheckOffService.buyListMessage();
     buyList.items =ShoppingListCheckOffService.getBuyList();
-    if(items.length==0){
-      buyList.emptyMessage="Everything bought!";
-    }else{
-      buyList.emptyMessage ="";
-    };
     buyList.buy = function(itemIndex){
       ShoppingListCheckOffService.buyItem(itemIndex);
     };
@@ -23,9 +18,9 @@
 
   function AlreadyBoughtController(ShoppingListCheckOffService){
    var boughtList = this;
-   boughtList.emptyMessage="";
+   boughtList.emptyMessage=ShoppingListCheckOffService.boughtListMessage();
    boughtList.items =ShoppingListCheckOffService.getBoughtList();
-   
+
   };
 
   function ShoppingListCheckOffService(){
@@ -42,5 +37,21 @@
    service.getBoughtList = function(){
      return boughtList;
    };
+   service.buyListMessage = function(){
+     if(buyList.length==0){
+       return "Everything bought!";
+     }else{
+       return "";
+     };
+   };
+
+   service.boughtListMessage = function(){
+     if(boughtList.length==0){
+       return "Nothing bought!!";
+     }else{
+       return "";
+     };
+   };
+
   };
 })();
