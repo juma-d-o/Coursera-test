@@ -19,7 +19,7 @@
 
   function AlreadyBoughtController(ShoppingListCheckOffService){
    var boughtListController = this;
-    boughtListController.showEmptyMessage=false;
+    boughtListController.showEmptyMessage=true;
     boughtListController.items =function(){
      boughtListController.showEmptyMessage=ShoppingListCheckOffService.showEmptyBoughtListMessage();
      return ShoppingListCheckOffService.getBoughtList();
