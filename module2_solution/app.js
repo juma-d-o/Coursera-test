@@ -5,18 +5,20 @@
   .controller('AlreadyBoughtController',AlreadyBoughtController )
   .service('ShoppingListCheckOffService',ShoppingListCheckOffService);
 
-  ToBuyController.$inject = ['ShoppingListCheckOffService'];
-  AlreadyBoughtController.$inject =['ShoppingListCheckOffService'];
+  ToBuyController.$inject = ['ShoppingListCheckOffService','$scope'];
+  AlreadyBoughtController.$inject =['ShoppingListCheckOffService','$scope'];
   function ToBuyController(ShoppingListCheckOffService){
     var buyList = this;
     buyList.emptyMessage ="";
     buyList.items =ShoppingListCheckOffService.getBuyList();
     buyList.buy = function(itemIndex){
       ShoppingListCheckOffService.buyItem(itemIndex);
+    };
+    $scope.$apply(function(){
       if(buyList.length==0){
         buyList.emptyMessage= "Everything bought!";
       };
-    };
+    });
   };
 
   function AlreadyBoughtController(ShoppingListCheckOffService){
