@@ -22,7 +22,12 @@
 
   function AlreadyBoughtController(ShoppingListCheckOffService){
    var boughtList = this;
-   boughtList.items =ShoppingListCheckOffService.getBoughtList(boughtList.emptyMessage);
+   boughtList.items =ShoppingListCheckOffService.getBoughtList();
+   if(boughtList.items.length==0){
+     boughtList.emptyMessage ="Nothing bought!";
+   }else{
+     boughtList.emptyMessage="";
+   };
   };
 
   function ShoppingListCheckOffService(){
@@ -36,12 +41,7 @@
     service.getBuyList = function(){
       return buyList;
     };
-   service.getBoughtList = function(msg){
-     if(boughtList.length==0){
-       msg ="Nothing bought!";
-     }else{
-       msg ="";
-     };
+   service.getBoughtList = function(){
      return boughtList;
    };
   };
