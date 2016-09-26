@@ -1,25 +1,54 @@
-(function () {
-  angular.module('LunchCheck',[])
-  .controller('LunchCheckController',LunchCheckController);
-  LunchCheckController.$inject = ['$scope'];
+(function(){
+  'use strict';
+  angular.module('ShoppingListCheckOff',[])
+  .controller('ToBuyController',ToBuyController)
+  .controller('AlreadyBoughtController',AlreadyBoughtController )
+  .service('ShoppingListCheckOffService',ShoppingListCheckOffService);
 
-  function LunchCheckController ($scope){
-      $scope.message = "";
-      $scope.checkIfTooMuch= function(){
-        if(!$scope.dishes||$scope.dishes==""){
-            $scope.message ="Please enter the data first";
-        }else if ($scope.dishes.indexOf(",")==-1 ) {
-          $scope.message ="Enjoy";
-        }else {
-          var dishcount =$scope.dishes.split(",").length;
-          if(dishcount<=3){
-            $scope.message ="Enjoy";
-          }else{
-            $scope.message ="Too much";
-          }
-        }
-        return;
-      };
+  ToBuyController.$inject = ['ShoppingListCheckOffService'];
+  AlreadyBoughtController.$inject =['ShoppingListCheckOffService'];
+  function ToBuyController(ShoppingListCheckOffService){
+    var buyList = this;
+      buyList.emptyMessage="";
+    buyList.items =ShoppingListCheckOffService.getBuyList();
+    if(buyList.items.length == 0){
+        buyList.emptyMessage="Everything is bought!";
+    }
+    else{
+        buyList.emptyMessage="";
+    };
+    buyList.buy = function(itemName,quantity,itemIndex){
+      service.buyItem(itemName,quantity,itemIndex);
+    };
   };
 
+  function AlreadyBoughtController(ShoppingListCheckOffService){
+   var boughtList = this;
+   boughtList.emptyMessage="";
+   boughtList.items =ShoppingListCheckOffService.getBoughtList();
+   if(boughtList.items.length == 0){
+       boughtList.emptyMessage="Nothing bought yet";
+   }
+   else{
+       boughtList.emptyMessage="";
+   }
+  };
+
+  function ShoppingListCheckOffService(){
+    var service = this;
+    var buyList =[{name: "Cookies",quantity: 10},{name: "Cookies",quantity: 10},{name: "Cookies",quantity: 10},{name: "Cookies",quantity: 10}];
+    var boughtList =[];
+    service.buyItem = function(itemName,quantity,itemIndex){
+      var item = {name: itemName, quantity:quantity};
+      boughtList.push(item);
+      buyList.splice(itemIndex,1);
+    };
+    service.getBuyList = function(){
+      return buyList;
+    };
+   service.getBoughtList = function(){
+     return boughtList;
+   };
+
+  };
 })();
