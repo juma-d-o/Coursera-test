@@ -9,21 +9,23 @@
   AlreadyBoughtController.$inject =['ShoppingListCheckOffService'];
   function ToBuyController(ShoppingListCheckOffService){
     var buyList = this;
+    buyList.emptyMessage ="";
     buyList.items =ShoppingListCheckOffService.getBuyList();
+    if(!buylist.items || buylist.items.length==0){
+      buyList.emptyMessage="Everything bought!";
+    }else{
+      buyList.emptyMessage ="";
+    };
     buyList.buy = function(itemIndex){
       ShoppingListCheckOffService.buyItem(itemIndex);
-      if(buylist.items.length==0){
-        buyList.emptyMessage="Everything bought!";
-      }else{
-        buyList.emptyMessage ="";
-      };
     };
   };
 
   function AlreadyBoughtController(ShoppingListCheckOffService){
    var boughtList = this;
+    boughtList.emptyMessage="";
    boughtList.items =ShoppingListCheckOffService.getBoughtList();
-   if(boughtList.items.length==0){
+   if(!boughtList.items || boughtList.items.length==0){
      boughtList.emptyMessage ="Nothing bought!";
    }else{
      boughtList.emptyMessage="";
