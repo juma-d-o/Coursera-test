@@ -10,7 +10,7 @@
   function ToBuyController(ShoppingListCheckOffService){
     var buyList = this;
     buyList.items =ShoppingListCheckOffService.getBuyList();
-    buyList.emptyMessage=ShoppingListCheckOffService.buyListEmptyMessage(buyList.items);
+    buyList.emptyMessage=ShoppingListCheckOffService.buyListEmptyMessage();
     buyList.buy = function(itemIndex){
       ShoppingListCheckOffService.buyItem(itemIndex);
     };
@@ -19,25 +19,25 @@
   function AlreadyBoughtController(ShoppingListCheckOffService){
    var boughtList = this;
    boughtList.items =ShoppingListCheckOffService.getBoughtList();
-   boughtList.emptyMessage=ShoppingListCheckOffService.boughtListEmptyMessage(boughtList.items);
+   boughtList.emptyMessage=ShoppingListCheckOffService.boughtListEmptyMessage();
   };
 
   function ShoppingListCheckOffService(){
     var service = this;
     var buyList =[{name: "Cookies",quantity: 10},{name: "Cookies",quantity: 10},{name: "Cookies",quantity: 10},{name: "Cookies",quantity: 10}];
     var boughtList =[];
-    service.buyListEmptyMessage = function (items){
+    service.buyListEmptyMessage = function (){
       var msg ="";
-      if(!items || items.length==0){
+      if(!buyList || buyList.length==0){
         msg= "Everything bought!";
       }else{
         msg ="";
       };
       return msg;
     };
-    service.boughtListEmptyMessage = function (items){
+    service.boughtListEmptyMessage = function (){
       var msg ="";
-      if(!items || items.length==0){
+      if(!boughtList || items.boughtList==0){
         msg= "Nothing bought!";
       }else{
         msg ="";
