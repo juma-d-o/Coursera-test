@@ -9,13 +9,14 @@
   AlreadyBoughtController.$inject =['ShoppingListCheckOffService'];
   function ToBuyController(ShoppingListCheckOffService){
     var buyList = this;
-    buyList.emptyMessage ="";
     buyList.items =ShoppingListCheckOffService.getBuyList();
+    if(items.length==0){
+      buyList.emptyMessage= "Everything bought!";
+    }else{
+      buyList.emptyMessage ="";
+    };
     buyList.buy = function(itemIndex){
       ShoppingListCheckOffService.buyItem(itemIndex);
-      if(items.length==0){
-        buyList.emptyMessage= "Everything bought!";
-      };
     };
   };
 
