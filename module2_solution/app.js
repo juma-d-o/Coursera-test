@@ -13,17 +13,12 @@
     buyListController.showEmptyMessage=false;
     buyListController.buy = function(itemIndex){
       ShoppingListCheckOffService.buyItem(itemIndex);
-      buyListController.showEmptyMessage=ShoppingListCheckOffService.showEmptyBuyListMessage();
     };
   };
 
   function AlreadyBoughtController(ShoppingListCheckOffService){
    var boughtListController = this;
-   boughtListController.showEmptyMessage=false;
-   boughtListController.items =function(){
-   boughtListController.showEmptyMessage=ShoppingListCheckOffService.showEmptyBoughtListMessage();
-    return ShoppingListCheckOffService.getBoughtList()
-   }();
+   boughtListController.items =ShoppingListCheckOffService.getBoughtList();
   };
 
   function ShoppingListCheckOffService(){
@@ -41,12 +36,5 @@
    service.getBoughtList = function(msg){
      return boughtList;
    };
-  service.showEmptyBuyListMessage = function(){
-    return buyList.length ==0;
-  };
-
-  service.showEmptyBoughtListMessage = function(){
-    return boughtList.length ==0;
-  };
   };
 })();
