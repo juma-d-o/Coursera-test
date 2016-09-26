@@ -9,7 +9,7 @@
   AlreadyBoughtController.$inject =['ShoppingListCheckOffService'];
   function ToBuyController(ShoppingListCheckOffService){
     var buyList = this;
-    buyList.items =ShoppingListCheckOffService.getBuyList(msg);
+    buyList.items =ShoppingListCheckOffService.getBuyList();
     buyList.buy = function(itemIndex){
       ShoppingListCheckOffService.buyItem(itemIndex);
       if(buylist.items.length==0){
