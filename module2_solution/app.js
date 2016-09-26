@@ -18,7 +18,7 @@
         buyList.emptyMessage="";
     };
     buyList.buy = function(itemIndex){
-      service.buyItem(itemIndex);
+      ShoppingListCheckOffService.buyItem(itemIndex);
     };
   };
 
