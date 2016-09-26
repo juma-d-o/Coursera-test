@@ -13,7 +13,7 @@
     buyList.items =ShoppingListCheckOffService.getBuyList();
     buyList.buy = function(itemIndex){
       ShoppingListCheckOffService.buyItem(itemIndex);
-      if(buyList.length==0){
+      if(buyList.items.length==0){
         buyList.emptyMessage= "Everything bought!";
       };
     };
@@ -23,7 +23,7 @@
    var boughtList = this;
    boughtList.emptyMessage="Nothing bought!";
    boughtList.items =ShoppingListCheckOffService.getBoughtList();
-   if(boughtList.length==0){
+   if(boughtList.items.length==0){
      boughtList.emptyMessage = "";
    };
 
