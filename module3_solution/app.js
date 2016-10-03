@@ -22,10 +22,10 @@
   function NarrowItDownController(MenuSearchService){
     var list = this;
      list.found=[];
-     list.searchTerm=false;
+     list.searchTerm="";
      list.Showmessage=false;
      list.narrowDown=function() {
-      if(!list.searchTerm){
+      if(list.searchTerm==""){
          list.Showmessage=true;
          list.found=[];
       }else{
