@@ -19,16 +19,10 @@
       <button class="btn btn-primary" ng-click="list.narrowDown();">Narrow It Down For Me!</button>
     </div>
     <!-- Bonus loader (see Bonus section of the assignment) -->
-    <ul>
-      <li ng-repeat="item in list.found">
-        ({{item.short_name}}) {{item.description}}
-         <button class="btn btn-default" ><span class="glyphicon glyphicon-ok"></span>Don't want this one!</button>
-      </li>
-    </ul>
-    <div>
-          {{list.message}}
-    </div>
+       <items-loader-indicator></items-loader-indicator>
 
+       <!-- found-items should be implemented as a component -->
+   <found-items found-items="list.found" on-remove="list.removeItem(indx)"></found-items>
 
 </body>
 </html>
