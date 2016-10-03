@@ -21,7 +21,13 @@
     <!-- Bonus loader (see Bonus section of the assignment) -->
 
        <!-- found-items should be implemented as a component -->
-   <found-items found-items="list.found" on-remove="list.removeItem(index)"></found-items>
+       <ul>
+         <li ng-repeat="item in list.found">
+           ({{item.short_name}}) {{item.description}}
+            <button class="btn btn-default" ng-click="list.removeItem($index);"><span class="glyphicon glyphicon-ok"></span>Don't want this one!</button>
+         </li>
+       </ul>
+
    <div class="error" ng-if="list.Showmessage">
          Nothing found!
    </div>
