@@ -8,7 +8,7 @@
     var ddo ={
       templateUrl: 'foundItems.html',
       scope: {
-        foundItems: '=',
+        found: '<',
         onRemove: '&'
       },
       controller:NarrowItDownController,
