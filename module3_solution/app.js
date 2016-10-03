@@ -24,15 +24,15 @@
     narrowItDownController.searchTerm ="";
     narrowItDownController.message ="";
     narrowItDownController.narrowDown =function(){
-      this.found =[];
+      narrowItDownController.found =[];
       if(!searchTerm || searchTerm==""){
-        this.message ="Nothing found";
+        narrowItDownController.message ="Nothing found";
       }else{
-        this.found = MenuSearchService.getMatchedMenuItems(searchTerm);
+        narrowItDownController.found = MenuSearchService.getMatchedMenuItems(searchTerm);
       }
     };
     narrowItDownController.removeItem =function(itemIndex){
-        found.splice(itemIndex,1);
+        narrowItDownController.found.splice(itemIndex,1);
     }
   };
   MenuSearchService.$inject=['$http']
