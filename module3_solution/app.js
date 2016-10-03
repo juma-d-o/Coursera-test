@@ -25,7 +25,7 @@
      list.searchTerm=false;
      list.message="";
      list.narrowDown=function() {
-      if(!list.searchTerm || list.searchTerm==""){
+      if(!list.searchTerm){
          list.Showmessage=true;
          list.found=[];
       }else{
