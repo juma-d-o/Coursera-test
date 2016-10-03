@@ -23,6 +23,7 @@
     var list = this;
      list.found=[];
      list.searchTerm=="";
+     list.message="";
      list.narrowDown=function() {
       if(!list.searchTerm || list.searchTerm==""){
          list.message= "Nothing found";
