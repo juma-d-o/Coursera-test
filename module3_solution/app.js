@@ -10,6 +10,7 @@
        var promise = MenuSearchService.getMatchedMenuItems(this.searchTerm);
        promise.then(function(result){
          list.found=result;
+         console.log(found);
        });
      };
     };
