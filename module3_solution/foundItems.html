@@ -1,9 +1,9 @@
 <ol>
-  <li ng-repeat="item in foundItems.found">
+  <li ng-repeat="item in foundItems">
     ({{item.short_name}}) {{item.description}}
-     <button class="btn btn-default" ng-click="foundItems.onRemove({index: $index});"><span class="glyphicon glyphicon-ok"></span>Don't want this one!</button>
+     <button class="btn btn-default" ng-click="list.onRemove({index: $index});"><span class="glyphicon glyphicon-ok"></span>Don't want this one!</button>
   </li>
 </ol>
 <div>
-  {{foundItems.message}}
+  {{list.message}}
 </div>
