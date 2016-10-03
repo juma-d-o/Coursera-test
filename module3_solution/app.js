@@ -24,7 +24,7 @@
         method: "GET",
         url: ("https://davids-restaurant.herokuapp.com/menu_items.json")
       }).then(function(result){
-        var foundItems =result.data;
+        var foundItems =result.data.menu_items;
         return foundItems;
       });
     };
