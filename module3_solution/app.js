@@ -40,7 +40,7 @@
 
       }).then(function(result){
         var foundItems =result.data;
-        for (1=0;i<foundItems.length;i++){
+        for (i==0;i<foundItems.length;i++){
           if(foundItems[i].indexOf(searchTerm)==-1){
             foundItems.splice(i,1);
           };
