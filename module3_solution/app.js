@@ -1,40 +1,49 @@
 (function(){
   'use strict';
-  angular.module('ShoppingListCheckOff',[])
-  .controller('ToBuyController',ToBuyController)
-  .controller('AlreadyBoughtController',AlreadyBoughtController )
-  .service('ShoppingListCheckOffService',ShoppingListCheckOffService);
-
-  ToBuyController.$inject = ['ShoppingListCheckOffService'];
-  AlreadyBoughtController.$inject =['ShoppingListCheckOffService'];
-  function ToBuyController(ShoppingListCheckOffService){
-    var buyListController = this;
-    buyListController.items =ShoppingListCheckOffService.getBuyList();
-    buyListController.showEmptyMessage=false;
-    buyListController.buy = function(itemIndex){
-      ShoppingListCheckOffService.buyItem(itemIndex);
+  angular.module('NarrowItDownApp',[])
+  .controller('NarrowItDownController',NarrowItDownController)
+  .service('MenuSearchService',MenuSearchService)
+  .directive('foundItems',FoundItems);
+  function FoundItems(){
+    var ddo ={
+      templateUrl: 'foundItems.html'
     };
+    return ddo;
   };
 
-  function AlreadyBoughtController(ShoppingListCheckOffService){
-   var boughtListController = this;
-   boughtListController.items =ShoppingListCheckOffService.getBoughtList();
+  NarrowItDownController.$inject = ['MenuSearchService'];
+  function NarrowItDownController(MenuSearchService){
+    var narrowItDownController = this;
+    this.searchTerm ="";
+    this.message ="";
+    narrowItDownController.narrowDown =function(){
+      this.found =[];
+      if(!searchTerm || searchTerm==""){
+        this.message ="Nothing found";
+      }else{
+        this.found = MenuSearchService.getMatchedMenuItems(searchTerm);
+      }
+    };
+    narrowItDownController.remove =function(itemIndex){
+        found.splice(itemIndex,1);
+    }
   };
-
-  function ShoppingListCheckOffService(){
+  MenuSearchService.$inject=['$http']
+  function MenuSearchService($http){
     var service = this;
-    var buyList =[{name: "Cookies",quantity: 10},{name: "Spoon",quantity: 10},{name: "Cookies",quantity: 10},{name: "Cookies",quantity: 10}];
-    var boughtList =[];
-    service.buyItem = function(itemIndex){
-      var item = {name:buyList[itemIndex].name,quantity:buyList[itemIndex].quantity};
-      boughtList.push(item);
-      buyList.splice(itemIndex,1);
+    service.getMatchedMenuItems = function(searchTerm){
+      return $http({
+
+      }).then(function(result){
+        var foundItems =result.data;
+        for (1=0;i<foundItems.length;i++){
+          if(foundItems[i].indexOf(searchTerm)===-1){
+            foundItems.splice(i,1);
+          };
+        };
+        return foundItems;
+      });
     };
-    service.getBuyList = function(msg){
-      return buyList;
-    };
-   service.getBoughtList = function(msg){
-     return boughtList;
-   };
   };
+
 })();
