@@ -6,7 +6,11 @@
   .directive('foundItems',FoundItems);
   function FoundItems(){
     var ddo ={
-      templateUrl: 'foundItems.html'
+      templateUrl: 'foundItems.html',
+      scope: {
+        foundItems: '<',
+        onRemove: '&'
+      }
     };
     return ddo;
   };
@@ -24,7 +28,7 @@
         this.found = MenuSearchService.getMatchedMenuItems(searchTerm);
       }
     };
-    narrowItDownController.remove =function(itemIndex){
+    narrowItDownController.removeItem =function(itemIndex){
         found.splice(itemIndex,1);
     }
   };
@@ -37,7 +41,7 @@
       }).then(function(result){
         var foundItems =result.data;
         for (1=0;i<foundItems.length;i++){
-          if(foundItems[i].indexOf(searchTerm)===-1){
+          if(foundItems[i].indexOf(searchTerm)==-1){
             foundItems.splice(i,1);
           };
         };
