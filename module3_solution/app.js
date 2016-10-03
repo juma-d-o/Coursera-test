@@ -7,10 +7,7 @@
   function FoundItems(){
     var ddo ={
       templateUrl: 'foundItems.html',
-      scope: {
-        found: '=foundItems',
-        onRemove: '&'
-      },
+      
       controller:NarrowItDownController,
       controllerAs:'list',
       bindTocController: true
