@@ -8,11 +8,17 @@
   function NarrowItDownController(MenuSearchService){
     var narrowItDownController = this;
     narrowItDownController.narrowDown=function(){
-      narrowItDownController.found =ShoppingListCheckOffService.getMatchedMenuItems(narrowItDownController.searchTerm);
+      var promise =ShoppingListCheckOffService.getMatchedMenuItems(narrowItDownController.searchTerm);
+      promise.then(
+        function(result) {
+            narrowItDownController.found =result;
+        }
+      );
     };
     };
   };
-  function MenuSearchService(){
+    MenuSearchService.$inject = ['$http'];
+  function MenuSearchService($http){
     var service = this;
     service.getMatchedMenuItems = function(searchTerm){
       return $http({
