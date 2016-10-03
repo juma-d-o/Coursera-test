@@ -23,6 +23,7 @@
     var narrowItDownController = this;
     narrowItDownController.searchTerm ="";
     narrowItDownController.message ="";
+    narrowItDownController.found =[];
     narrowItDownController.narrowDown =function(){
       narrowItDownController.found =[];
       if(!searchTerm || searchTerm==""){
