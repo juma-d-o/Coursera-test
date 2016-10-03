@@ -34,9 +34,9 @@
     };
     narrowItDownController.removeItem =function(itemIndex){
         narrowItDownController.found.splice(itemIndex,1);
-    }
+    };
   };
-  MenuSearchService.$inject=['$http']
+  MenuSearchService.$inject=['$http'];
   function MenuSearchService($http){
     var service = this;
     service.getMatchedMenuItems = function(searchTerm){
