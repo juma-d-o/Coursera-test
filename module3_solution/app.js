@@ -6,7 +6,7 @@
   .directive("foundItems",FoundItems);
 
   function FoundItems(){
-    var ddo {
+    var ddo= {
       templateUrl:'foundItems.html',
       scope:{
         foundItems: "<",
