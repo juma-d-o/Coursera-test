@@ -29,7 +29,7 @@
       if(!narrowItDownController.searchTerm || narrowItDownController.searchTerm==""){
         narrowItDownController.message ="Nothing found";
       }else{
-        narrowItDownController.found = MenuSearchService.getMatchedMenuItems(narrowItDownController.searchTerm)();
+        narrowItDownController.found = MenuSearchService.getMatchedMenuItems(narrowItDownController.searchTerm);
       }
     };
     narrowItDownController.removeItem =function(itemIndex){
