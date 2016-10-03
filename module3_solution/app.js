@@ -20,23 +20,23 @@
 
   NarrowItDownController.$inject = ['MenuSearchService'];
   function NarrowItDownController(MenuSearchService){
-    var narrowItDownController = this;
-    narrowItDownController.searchTerm ="";
-    narrowItDownController.message ="";
-    narrowItDownController.found =[];
-    narrowItDownController.narrowDown =function(){
-      narrowItDownController.found =[];
-      if(!narrowItDownController.searchTerm || narrowItDownController.searchTerm==""){
-        narrowItDownController.message ="Nothing found";
+    var list = this;
+    list.searchTerm ="";
+    list.message ="";
+    list.found =[];
+    list.narrowDown =function(){
+      list.found =[];
+      if(!list.searchTerm || list.searchTerm==""){
+        list.message ="Nothing found";
       }else{
-        var promise = MenuSearchService.getMatchedMenuItems(narrowItDownController.searchTerm);
+        var promise = MenuSearchService.getMatchedMenuItems(list.searchTerm);
         promise.then(function(result){
-          narrowItDownController.found=result;
+          list.found=result;
         });
       }
     };
-    narrowItDownController.removeItem =function(itemIndex){
-        narrowItDownController.found.splice(itemIndex,1);
+    list.removeItem =function(itemIndex){
+        list.found.splice(itemIndex,1);
     };
   };
   MenuSearchService.$inject=['$http'];
