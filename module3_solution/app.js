@@ -43,7 +43,7 @@
     };
   };
 
-    MenuSearchService.$inject = ['$http'];
+  MenuSearchService.$inject = ['$http'];
   function MenuSearchService($http){
     var service = this;
     service.getMatchedMenuItems= function(searchTerm){
@@ -51,7 +51,8 @@
         method: "GET",
         url: ("https://davids-restaurant.herokuapp.com/menu_items.json")
       }).then(function(result){
-        var foundItems =result.data.menu_items;
+        var foundItems=[];
+        foundItems =result.data.menu_items;
         for (var i = 0; i < foundItems.length; i++) {
           var description=foundItems[i].description;
           if(description.toLowerCase().indexOf(searchTerm)==-1){
