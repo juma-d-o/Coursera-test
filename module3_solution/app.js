@@ -36,10 +36,10 @@
          });
       };
      };
+
     list.removeItem= function(itemIndex){
       list.found.splice(itemIndex,1);
     };
-
   };
 
     MenuSearchService.$inject = ['$http'];
@@ -60,6 +60,5 @@
         return foundItems;
       });
     };
-
   };
 })();
