@@ -13,7 +13,7 @@
         onRemove: "&"
       },
       controller: NarrowItDownController,
-      controllerAs: 'list'
+      controllerAs: 'list',
       bindToController: true
     };
     return ddo;
