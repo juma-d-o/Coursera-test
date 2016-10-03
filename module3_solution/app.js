@@ -24,13 +24,14 @@
     var list = this;
      list.found=[];
      list.narrowDown=function() {
-      if(!list.searchTerm || list.searchTerm===""){
+      if(!list.searchTerm || list.searchTerm==""){
          list.message= "Nothing found";
          list.found=[];
       }else{
         var promise = MenuSearchService.getMatchedMenuItems(list.searchTerm);
          promise.then(function(result){
            list.found =result;
+           list.message="";
          });
       };
      };
@@ -50,7 +51,7 @@
       }).then(function(result){
         var foundItems =result.data.menu_items;
         for (var i = 0; i < foundItems.length; i++) {
-          if(foundItems[i].description.indexOf(searchTerm)===-1){
+          if(foundItems[i].description.indexOf(searchTerm)==-1){
               foundItems.splice(i,1);
           };
         };
