@@ -10,10 +10,9 @@
       templateUrl:'foundItems.html',
       scope:{
         foundItems: "<",
-        onRemove:"&"
+        onRemove: "&"
       },
-      controller: NarrowItDownController,
-      controllerAs: 'list',
+      controller: 'NarrowItDownController as list',
       bindToController: true
     };
     return ddo;
