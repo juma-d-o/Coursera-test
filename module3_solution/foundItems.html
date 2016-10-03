@@ -1,5 +1,5 @@
 <ul>
-  <li ng-repeat="item in found">
+  <li ng-repeat="item in foundItems">
     ({{item.short_name}}) {{item.description}}
      <button class="btn btn-default" ng-click="list.onRemove({index: $index})"><span class="glyphicon glyphicon-ok"></span>Don't want this one!</button>
   </li>
