@@ -52,7 +52,8 @@
       }).then(function(result){
         var foundItems =result.data.menu_items;
         for (var i = 0; i < foundItems.length; i++) {
-          if(foundItems[i].description.indexOf(searchTerm)==-1){
+          var description=foundItems[i].description;
+          if(description.toLowerCase().indexOf(searchTerm)==-1){
               foundItems.splice(i,1);
           };
         };
