@@ -31,6 +31,7 @@
         var promise = MenuSearchService.getMatchedMenuItems(list.searchTerm);
          promise.then(function(result){
            list.found =result;
+           console.log(list.found);
            list.message="";
          });
       };
