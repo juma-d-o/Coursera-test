@@ -7,7 +7,10 @@
   function FoundItems(){
     var ddo ={
       templateUrl: 'foundItems.html',
-
+      scope: {
+        foundItems: '<',
+        onRemove: '&'
+      },
       controller:NarrowItDownController,
       controllerAs:'list',
       bindTocController: true
@@ -17,8 +20,8 @@
 
   NarrowItDownController.$inject = ['MenuSearchService'];
   function NarrowItDownController(MenuSearchService){
-    var list = this;
-    list.searchTerm ="";
+    var narrowItDownController = this;
+    narrowItDownController.searchTerm ="";
     narrowItDownController.message ="";
     narrowItDownController.found =[];
     narrowItDownController.narrowDown =function(){
@@ -26,7 +29,10 @@
       if(!narrowItDownController.searchTerm || narrowItDownController.searchTerm==""){
         narrowItDownController.message ="Nothing found";
       }else{
-        narrowItDownController.found = MenuSearchService.getMatchedMenuItems(narrowItDownController.searchTerm);
+        var promise = MenuSearchService.getMatchedMenuItems(narrowItDownController.searchTerm);
+        promise.then(function(result){
+          narrowItDownController.found=result;
+        });
       }
     };
     narrowItDownController.removeItem =function(itemIndex){
@@ -37,7 +43,7 @@
   function MenuSearchService($http){
     var service = this;
     service.getMatchedMenuItems = function(searchTerm){
-       $http({
+      return $http({
        method: 'GET',
        url: ("https://davids-restaurant.herokuapp.com/menu_items.json")
       }).then(function(result){
