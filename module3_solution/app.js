@@ -21,8 +21,8 @@
   NarrowItDownController.$inject = ['MenuSearchService'];
   function NarrowItDownController(MenuSearchService){
     var narrowItDownController = this;
-    this.searchTerm ="";
-    this.message ="";
+    narrowItDownController.searchTerm ="";
+    narrowItDownController.message ="";
     narrowItDownController.narrowDown =function(){
       this.found =[];
       if(!searchTerm || searchTerm==""){
