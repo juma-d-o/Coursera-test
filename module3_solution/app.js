@@ -7,7 +7,7 @@
   function FoundItems(){
     var ddo ={
       templateUrl: 'foundItems.html',
-      
+
       controller:NarrowItDownController,
       controllerAs:'list',
       bindTocController: true
@@ -17,8 +17,8 @@
 
   NarrowItDownController.$inject = ['MenuSearchService'];
   function NarrowItDownController(MenuSearchService){
-    var narrowItDownController = this;
-    narrowItDownController.searchTerm ="";
+    var list = this;
+    list.searchTerm ="";
     narrowItDownController.message ="";
     narrowItDownController.found =[];
     narrowItDownController.narrowDown =function(){
@@ -37,7 +37,7 @@
   function MenuSearchService($http){
     var service = this;
     service.getMatchedMenuItems = function(searchTerm){
-      return $http({
+     $http({
        method: 'GET',
        url: ("https://davids-restaurant.herokuapp.com/menu_items.json")
       }).then(function(result){
