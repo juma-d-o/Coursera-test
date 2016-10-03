@@ -7,11 +7,8 @@
   function NarrowItDownController(MenuSearchService){
     var list = this;
      list.narrowDown=function() {
-      var promise = MenuSearchService.getMatchedMenuItems(this.searchTerm);
-       promise.then(function (result) {
-         list.found =result.data;
-         console.log(list.found);
-       });
+      var list.found = MenuSearchService.getMatchedMenuItems(this.searchTerm);
+       console.log(list.found);
      };
     };
 
@@ -19,7 +16,7 @@
   function MenuSearchService($http){
     var service = this;
     service.getMatchedMenuItems= function(searchTerm){
-    return  $http({
+      $http({
         method: "GET",
         url: ("https://davids-restaurant.herokuapp.com/menu_items.json")
       }).then(function(result){
