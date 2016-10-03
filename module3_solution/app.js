@@ -26,10 +26,10 @@
     narrowItDownController.found =[];
     narrowItDownController.narrowDown =function(){
       narrowItDownController.found =[];
-      if(!searchTerm || searchTerm==""){
+      if(!narrowItDownController.searchTerm || narrowItDownController.searchTerm==""){
         narrowItDownController.message ="Nothing found";
       }else{
-        narrowItDownController.found = MenuSearchService.getMatchedMenuItems(searchTerm);
+        narrowItDownController.found = MenuSearchService.getMatchedMenuItems(narrowItDownController.searchTerm);
       }
     };
     narrowItDownController.removeItem =function(itemIndex){
