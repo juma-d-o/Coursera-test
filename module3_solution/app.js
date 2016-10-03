@@ -8,7 +8,7 @@
   function NarrowItDownController(MenuSearchService){
     var narrowItDownController = this;
     narrowItDownController.narrowDown=function(){
-      var promise =ShoppingListCheckOffService.getMatchedMenuItems(narrowItDownController.searchTerm);
+      var promise =MenuSearchService.getMatchedMenuItems(narrowItDownController.searchTerm);
       promise.then(
         function(result) {
             narrowItDownController.found =result;
