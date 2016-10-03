@@ -7,7 +7,9 @@
   NarrowItDownController.$inject = ['MenuSearchService'];
   function NarrowItDownController(MenuSearchService){
     var narrowItDownController = this;
-    narrowItDownController.found =ShoppingListCheckOffService.getMatchedMenuItems(narrowItDownController.searchTerm);
+    narrowItDownController.narrowDown=function(){
+      narrowItDownController.found =ShoppingListCheckOffService.getMatchedMenuItems(narrowItDownController.searchTerm);
+    };
     };
   };
   function MenuSearchService(){
