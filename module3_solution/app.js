@@ -12,7 +12,7 @@
         onRemove: '&'
       },
       controller:NarrowItDownController,
-      controllerAs:'list',
+      controllerAs:'foundItems',
       bindTocController: true
     };
     return ddo;
