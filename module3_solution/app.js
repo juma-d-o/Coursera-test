@@ -26,15 +26,14 @@
      list.searchTerm="";
      list.Showmessage=false;
      list.narrowDown=function() {
-      if(list.searchTerm==""){
-         list.Showmessage=true;
-         list.found=[];
+      if(!list.searchTerm || list.searchTerm==""){
+         list.Showmessage=list.found.length==0;
       }else{
         var promise = MenuSearchService.getMatchedMenuItems(list.searchTerm);
          promise.then(function(result){
            list.found =result;
            console.log(list.found);
-           list.message=false;
+          list.Showmessage=list.found.length==0;
          });
       };
      };
