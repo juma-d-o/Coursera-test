@@ -7,7 +7,10 @@
   function NarrowItDownController(MenuSearchService){
     var list = this;
      list.narrowDown=function() {
-       list.found = MenuSearchService.getMatchedMenuItems(this.searchTerm);
+       var promise = MenuSearchService.getMatchedMenuItems(this.searchTerm);
+       promise.then(function(result){
+         list.found=result;
+       });
      };
     };
 
