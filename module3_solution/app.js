@@ -7,6 +7,7 @@
 
   function FoundItems(){
     var ddo {
+      templateUrl:'foundItems.html',
       scope:{
         foundItems: '<',
         onRemove:'&'
