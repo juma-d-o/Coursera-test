@@ -10,7 +10,10 @@
       scope: {
         foundItems: '<',
         onRemove: '&'
-      }
+      },
+      controller:NarrowItDownController,
+      controllerAs:'list',
+      bindTocController: true
     };
     return ddo;
   };
