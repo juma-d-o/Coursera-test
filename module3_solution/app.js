@@ -9,7 +9,7 @@
      list.narrowDown=function() {
       var promise = MenuSearchService.getMatchedMenuItems(this.searchTerm);
        promise.then(function (result) {
-         list.found =result;
+         list.found =result.data;
          console.log(list.found);
        });
      };
@@ -22,7 +22,10 @@
     return  $http({
         method: "GET",
         url: ("https://davids-restaurant.herokuapp.com/menu_items.json")
-      })
+      }).then(function(result){
+        var foundItems =result.data;
+        return foundItems;
+      });
     };
 
   };
