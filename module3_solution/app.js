@@ -22,18 +22,18 @@
   function NarrowItDownController(MenuSearchService){
     var list = this;
      list.found=[];
-     list.searchTerm="";
+     list.searchTerm=false;
      list.message="";
      list.narrowDown=function() {
       if(!list.searchTerm || list.searchTerm==""){
-         list.message= "Nothing found";
+         list.Showmessage=true;
          list.found=[];
       }else{
         var promise = MenuSearchService.getMatchedMenuItems(list.searchTerm);
          promise.then(function(result){
            list.found =result;
            console.log(list.found);
-           list.message="";
+           list.message=false;
          });
       };
      };
