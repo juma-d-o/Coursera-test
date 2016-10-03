@@ -12,7 +12,8 @@
         foundItems: "<",
         onRemove: "&"
       },
-      controller: 'NarrowItDownController as list',
+      controller: NarrowItDownController,
+      controllerAs: 'list'
       bindToController: true
     };
     return ddo;
