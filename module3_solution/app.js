@@ -48,8 +48,8 @@ function MenuSearchService($q,$http){
       var foundItems=[];
       var menu_items= result.data.menu_items;
       for (var i = 0; i < menu_items.length; i++) {
-        if(menu_items[i].description.toUpperCase())
-        .includes(searchTerm.toUpperCase())
+        if(menu_items[i].description.toUpperCase()
+        .includes(searchTerm.toUpperCase()))
           foundItems.push(menu_items[i]);
       }
       deffered.resolve(foundItems);
