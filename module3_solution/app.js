@@ -21,6 +21,7 @@
 NarrowItDownController.$inject = ['MenuSearchService'];
 function NarrowItDownController(MenuSearchService){
   var ctrl = this;
+  ctrl.searchTerm="";
   ctrl.found =[];
   ctrl.itemsEmpty=false;
   ctr.narrowItDownOnClick= function(){
@@ -30,6 +31,10 @@ function NarrowItDownController(MenuSearchService){
       ctrl.itemsEmpty=ctrl.found.length==0;
     })
   }
+  ctrl.onRemove = function (index) {
+            ctrl.found.splice(index, 1);
+            ctrl.itemsEmpty = (ctrl.found.length == 0);
+    }
 }
 
 MenuSearchService.$inject = ['$q', '$http'];
