@@ -32,7 +32,7 @@ function NarrowItDownController(MenuSearchService){
       ctrl.itemsEmpty=ctrl.found.length==0;
     })
   }
-  ctrl.Remove = function (index) {
+  ctrl.remove = function (index) {
             ctrl.found.splice(index, 1);
             ctrl.itemsEmpty = (ctrl.found.length == 0);
     }
