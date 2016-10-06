@@ -12,11 +12,14 @@
         onRemove:"&",
         itemsEmpty: "<"
       },
-      controller: NarrowItDownController,
+      controller: FoundItemsDirectiveController,
       controllerAs: 'dirCtrl',
       bindToController:true
     }
     return ddo;
+  }
+  function FoundItemsDirectiveController() {
+
   }
 NarrowItDownController.$inject = ['MenuSearchService'];
 function NarrowItDownController(MenuSearchService){
