@@ -12,22 +12,20 @@
         onRemove:"&",
         itemsEmpty: "<"
       },
-      controller: FoundItemsDirectiveController,
+      controller: NarrowItDownController,
       controllerAs: 'dirCtrl',
       bindToController:true
     }
     return ddo;
   }
-  function FoundItemsDirectiveController() {
 
-  }
 NarrowItDownController.$inject = ['MenuSearchService'];
 function NarrowItDownController(MenuSearchService){
   var ctrl = this;
   ctrl.searchTerm="";
   ctrl.found =[];
   ctrl.itemsEmpty=false;
-  ctr.narrowItDownOnClick= function(){
+  ctrl.narrowItDownOnClick= function(){
     MenuSearchService.getMatchedMenuItems(ctr.searchTerm)
     .then(function(result){
       ctrl.found=result;
