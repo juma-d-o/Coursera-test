@@ -12,7 +12,7 @@
     })
 
    .state('categories',{
-     url: '/categories'
+     url: '/categories',
      templateUrl: 'src/categories.html'
    })
 
