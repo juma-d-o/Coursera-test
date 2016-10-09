@@ -1,6 +1,7 @@
 (function(){
+  'use strict';
   angular.module('MenuApp')
-  .config(RoutesConfig)
+  .config(RoutesConfig);
   RoutesConfig.$inject=['$stateProvider','$urlRouterProvider'];
   function RoutesConfig($stateProvider,$urlRouterProvider){
     $urlRouterProvider.otherwise('/home');
