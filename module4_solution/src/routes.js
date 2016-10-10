@@ -13,7 +13,12 @@
 
    .state('categories',{
      url: '/categories',
-     templateUrl: 'src/categories.html'
+     templateUrl: 'src/categories.html',
+     resolve : {
+       categories : ['MenuDataService',function(MenuDataService){
+         return MenuDataService.getAllCategories();
+       }]
+     }
    })
 
    .state('items',{
