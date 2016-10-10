@@ -1,2 +1,8 @@
 <span><a ui-sref="home">Home</a> 	&lt;Categories</span>
-<categories items="categoryList.items"></categories>
+<p>
+  <ul>
+    <li ng-repeat="category in items">
+      ({{category.short_name}}) {{category.description}}
+    </li>
+  </ul>
+</p>
