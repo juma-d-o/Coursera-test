@@ -3,9 +3,9 @@
   .controller('CategoriesController',CategoriesController);
 
   CategoriesController.$inject=['categories'];
-  function CategoriesController(categories) {
+  function CategoriesController(items) {
       var categoryList =this;
-      categoryList.categories =categories;
+      categoryList.items =items;
       console.log(categories);
   }
 })()
