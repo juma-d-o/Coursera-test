@@ -1,6 +1,6 @@
 (function(){
   angular.module('MenuApp')
-  .controller('CategoriesComponentController',CategoriesComponentController);
+  .controller('CategoriesController',CategoriesController);
 
   CategoriesComponentController.$inject=['categories'];
   function CategoriesComponentController(categories) {

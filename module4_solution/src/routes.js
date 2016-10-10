@@ -14,7 +14,7 @@
    .state('categories',{
      url: '/categories',
      templateUrl: 'src/categories.html',
-     controller: 'CategoriesComponentController as categoryList',
+     controller: 'CategoriesController as categoryList',
      resolve : {
        categories : ['MenuDataService',function(MenuDataService){
          return MenuDataService.getAllCategories();
