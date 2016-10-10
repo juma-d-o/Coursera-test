@@ -3,7 +3,7 @@
   .controller('CategoriesController',CategoriesController);
 
   CategoriesComponentController.$inject=['categories'];
-  function CategoriesComponentController(categories) {
+  function CategoriesController(categories) {
       var categoryList =this;
       categoryList.categories =categories;
       console.log(categories);
