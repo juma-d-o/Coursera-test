@@ -4,8 +4,8 @@
 
   CategoriesComponentController.$inject=['categories'];
   function CategoriesComponentController(categories) {
-      var ctrl =this;
-      ctrl.categories =categories;
+      var categoryList =this;
+      categoryList.categories =categories;
       console.log(categories);
   }
 })()
