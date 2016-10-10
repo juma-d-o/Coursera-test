@@ -13,10 +13,10 @@
 
    .state('categories',{
      url: '/categories',
-     templateUrl: 'src/categories.html',
+     templateUrl: 'src/main-category-list.html',
      controller: 'CategoriesController as categoryList',
      resolve : {
-       itemList : ['MenuDataService',function(MenuDataService){
+       categories : ['MenuDataService',function(MenuDataService){
          return   MenuDataService.getAllCategories().then(function(results){
            console.log(results);
            return results;
