@@ -2,10 +2,10 @@
   angular.module('MenuApp')
   .controller('CategoriesController',CategoriesController);
 
-  CategoriesController.$inject=['items'];
-  function CategoriesController(items) {
+  CategoriesController.$inject=['itemList'];
+  function CategoriesController(itemList) {
       var categoryList =this;
-      console.log(items);
-      categoryList.items =items;
+      console.log(itemList);
+      categoryList.items =itemList;
   }
 })()
