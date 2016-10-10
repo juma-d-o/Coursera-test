@@ -15,6 +15,7 @@
   function CategoriesComponentController(categories){
     var $ctrl =this;
     $ctrl.categories =categories;
+    console.log(categories);
   }
 
 })()
