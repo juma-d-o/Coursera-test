@@ -23,7 +23,7 @@
 
       service.getItemsForCategory = function(categoryShortName) {
         var deffered = $q.defer();
-        retun $http({
+        return $http({
           method: 'GET',
           url: "https://davids-restaurant.herokuapp.com/menu_items.json",
           params:{
