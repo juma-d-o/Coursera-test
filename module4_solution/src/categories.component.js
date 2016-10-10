@@ -5,7 +5,8 @@
     templateUrl: 'src/categories.template.html',
     bindings : {
       itemList : '<'
-    }
+    };
+    console.log(itemList);
   });
 
 })()
