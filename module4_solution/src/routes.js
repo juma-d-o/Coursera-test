@@ -32,7 +32,11 @@
      controller:'ItemsController as itemList',
      menuItems: ['$stateParams','MenuDataService',
          function($stateParams,MenuDataService){
-           return MenuDataService.getItemsForCategory($stateParams.categoryShortName);
+           return MenuDataService.getItemsForCategory($stateParams.categoryShortName).then(function(results){
+             console.log(results);
+             return results;
+
+           });
          }]
    })
 
