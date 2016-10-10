@@ -17,29 +17,22 @@
      controller: 'CategoriesController as categoryList',
      resolve : {
        categories : ['MenuDataService',function(MenuDataService){
-         return   MenuDataService.getAllCategories().then(function(results){
-           console.log(results);
-           return results;
-
-         });
+         return   MenuDataService.getAllCategories();
        }]
      }
    })
 
-   .state('items',{
+   .state('categories.items',{
      url:'/items/{categoryShortName}',
-     templateUrl: 'src/items.html',
+     templateUrl: 'src/item-list.html',
      controller:'ItemsController as itemList',
-     menuItems: ['$stateParams','MenuDataService',
-         function($stateParams,MenuDataService){
-           return MenuDataService.getItemsForCategory($stateParams.categoryShortName).then(function(results){
-             console.log(results);
-             return results;
-
-           });
-         }]
+     resolve: {
+       items: ['$stateParams','MenuDataService',
+           function($stateParams,MenuDataService){
+             return MenuDataService.getItemsForCategory($stateParams.categoryShortName);
+           }]
+     }
    })
-
   }
 
 
