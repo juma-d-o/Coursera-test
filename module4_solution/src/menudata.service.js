@@ -13,7 +13,7 @@
         url:"https://davids-restaurant.herokuapp.com/categories.json"
       }).then(function(result){
         var foundCategories = result.data;
-        deffered.resolve(foundItems);
+        deffered.resolve(foundCategories);
         return deffered.promise;
       }).catch(function(httpError){
         console.log("http error:",httpError);
