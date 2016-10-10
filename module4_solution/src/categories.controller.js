@@ -6,6 +6,5 @@
   function CategoriesController(items) {
       var categoryList =this;
       categoryList.items =items;
-      console.log(items);
   }
 })()
