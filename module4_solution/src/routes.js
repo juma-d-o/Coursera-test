@@ -19,6 +19,7 @@
        items : ['MenuDataService',function(MenuDataService){
          return   MenuDataService.getAllCategories().then(function(results){
            return results;
+           console.log(results);
          });
        }]
      }
