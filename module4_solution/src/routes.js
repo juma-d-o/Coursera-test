@@ -23,7 +23,7 @@
    })
 
    .state('items',{
-     url:'/items',
+     url:'/items/{categoryShortName}',
      templateUrl: 'src/items.html'
    })
 
