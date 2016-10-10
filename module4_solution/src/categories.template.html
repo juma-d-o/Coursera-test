@@ -1,8 +1,8 @@
 <p>
   <span><a ui-sref="home">Home</a> 	&lt;Categories</span>
   <ul>
-    <li ng-repeat="category in items">
-      {{category.short_name}} {{category.name}}
+    <li ng-repeat="category in categoryList.items">
+      ({{category.short_name}}) {{category.name}}
     </li>
   </ul>
 </p>
