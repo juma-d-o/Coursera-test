@@ -5,6 +5,7 @@
   CategoriesController.$inject=['items'];
   function CategoriesController(items) {
       var categoryList =this;
+      console.log(items);
       categoryList.items =items;
   }
 })()
